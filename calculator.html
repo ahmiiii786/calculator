@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script>
+        // Allow only numbers
+        function chr(evt) {
+            let charCode = evt.which ? evt.which : evt.keyCode;
+            if (charCode >= 48 && charCode <= 57 || charCode === 46) {
+                return true;
+            }
+            return false;
+        }
+
+        // Main calculator function
+        function check() {
+            let first = document.admission_form.Calculator_first_value.value;
+            let second = document.admission_form.Calculator_second_value.value;
+            let op = document.admission_form.Calculator_oprators.value;
+
+            if (first === "" || second === "") {
+                alert("Please enter both numbers.");
+                return false;
+            }
+
+            let num1 = parseFloat(first);
+            let num2 = parseFloat(second);
+            let result = 0;
+
+            switch (op) {
+                case "1":
+                    result = num1 + num2;
+                    alert("Result (Addition): " + result);
+                    break;
+                case "2":
+                    result = num1 - num2;
+                    alert("Result (Subtraction): " + result);
+                    break;
+                case "3":
+                    result = num1 * num2;
+                    alert("Result (Multiplication): " + result);
+                    break;
+                case "4":
+                    if (num2 === 0) {
+                        alert("Cannot divide by zero.");
+                        return false;
+                    }
+                    result = num1 / num2;
+                    alert("Result (Division): " + result);
+                    break;
+                default:
+                    alert("Invalid operation.");
+                    return false;
+            }
+
+            return false; // Prevent form submission
+        }
+    </script>
+</head>
+<body>
+    <form method="post" name="admission_form" action="index.html" onsubmit="return check();">
+        <table width="50%" border="0" align="center" cellspacing="10" cellpadding="5" style="background-color: rgb(0, 213, 255);">
+            <tr>
+                <td colspan="4" align="center"><h1>Calculator</h1></td>
+            </tr>
+            <tr>
+                <td>First value</td>
+                <td><input type="text" size="10" maxlength="10" name="Calculator_first_value" onkeypress="return chr(event);"></td>
+            </tr>
+            <tr>
+                <td>Second value</td>
+                <td><input type="text" size="10" maxlength="10" name="Calculator_second_value" onkeypress="return chr(event);"></td>
+            </tr>
+            <tr>
+                <td>Operations</td>
+                <td>
+                    <select name="Calculator_oprators">
+                        <option value="1">Addition</option>
+                        <option value="2">Subtraction</option>
+                        <option value="3">Multiplication</option>
+                        <option value="4">Division</option>
+                    </select>
+                </td>
+                <td><input type="submit" value="Result"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        // Allow only numbers
+        function chr(evt) {
+            let charCode = evt.which ? evt.which : evt.keyCode;
+            if (charCode >= 48 && charCode <= 57 || charCode === 46) {
+                return true;
+            }
+            return false;
+        }
+
+        // Main calculator function
+        function check() {
+            let first = document.admission_form.Calculator_first_value.value;
+            let second = document.admission_form.Calculator_second_value.value;
+            let op = document.admission_form.Calculator_oprators.value;
+
+            if (first === "" || second === "") {
+                alert("Please enter both numbers.");
+                return false;
+            }
+
+            let num1 = parseFloat(first);
+            let num2 = parseFloat(second);
+            let result = 0;
+
+            switch (op) {
+                case "1":
+                    result = num1 + num2;
+                    alert("Result (Addition): " + result);
+                    break;
+                case "2":
+                    result = num1 - num2;
+                    alert("Result (Subtraction): " + result);
+                    break;
+                case "3":
+                    result = num1 * num2;
+                    alert("Result (Multiplication): " + result);
+                    break;
+                case "4":
+                    if (num2 === 0) {
+                        alert("Cannot divide by zero.");
+                        return false;
+                    }
+                    result = num1 / num2;
+                    alert("Result (Division): " + result);
+                    break;
+                default:
+                    alert("Invalid operation.");
+                    return false;
+            }
+
+            return false; 
+        }
+    </script>
+</body>
+</html>
